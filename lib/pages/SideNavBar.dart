@@ -321,7 +321,7 @@ class _SideNavBarState extends State<SideNavBar> with SingleTickerProviderStateM
                           selectedIcon: Icons.home,
                           label: "Home",
                           id: "home",
-                          onTap: () => _navigateTo('/routes'),
+                          onTap: () => _navigateTo('/route'),
                         ),
                         
                         _buildNavItem(
@@ -362,7 +362,7 @@ class _SideNavBarState extends State<SideNavBar> with SingleTickerProviderStateM
                           selectedIcon: Icons.chat_bubble,
                           label: "Feedback",
                           id: "feedback",
-                          onTap: () => _navigateTo('/feedback'),
+                          onTap: () => _navigateTo('/feed'),
                         ),
                         
                         _buildNavItem(

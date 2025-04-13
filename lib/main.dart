@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wimb/pages/Notification.dart';
 import 'pages/landing_page.dart';
 import 'pages/LoginPage.dart';
 import 'pages/SignInSelectionPage.dart';
 import 'pages/LocationPermissionPage.dart';
 import 'pages/RoutesPage.dart';
+// import 'pages/RouteTrack.dart';
+import 'pages/FeedbackPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +32,10 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => const SignInSelectionPage(),
         '/location-permission': (context) => const LocationPermissionScreen(),
         '/landing': (context) => const LandingPage(),
-        '/route': (context) => const RoutesPage(), // Replace with ForgotPasswordPage if you have one
+        '/route': (context) => const RoutesPage(),
+        '/feed': (context) => const FeedbackPage(),
+        '/notifications': (context) => NotificationsScreen(), // Replace with your actual notification page
+        // '/track':(context) => const RouteDetailsPage(), // Replace with ForgotPasswordPage if you have one
       },
     );
   }
