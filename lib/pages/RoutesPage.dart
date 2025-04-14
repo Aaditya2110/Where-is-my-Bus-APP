@@ -116,6 +116,21 @@ class _RoutesPageState extends State<RoutesPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
+  
+  // ... existing code ...
+  
+  // Handle navigation arguments
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final arguments = ModalRoute.of(context)?.settings.arguments;
+      if (arguments != null && arguments is Map<String, dynamic>) {
+        if (arguments.containsKey('tab') && arguments['tab'] == 'saved') {
+          setState(() {
+            activeTab = "saved";
+          });
+        }
+      }
+    });
     
     // Initialize animations
     _backgroundAnimationController = AnimationController(
@@ -212,15 +227,8 @@ class _RoutesPageState extends State<RoutesPage> with TickerProviderStateMixin {
         final distanceB = double.parse((b['distance'] as String).split(' ')[0]);
         return distanceA.compareTo(distanceB);
       });
-    } else if (selectedFilter == "fastest") {
-      filtered.sort((a, b) {
-        final etaA = int.parse((a['eta'] as String).split(' ')[0]);
-        final etaB = int.parse((b['eta'] as String).split(' ')[0]);
-        return etaA.compareTo(etaB);
-      });
     }
-
-    return filtered;
+   return filtered;
   }
 
   // Clear search field

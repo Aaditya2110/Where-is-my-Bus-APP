@@ -280,7 +280,7 @@ class _NotificationsScreenState extends State<NotificationsScreen>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildBottomNavItem(Icons.map, "Routes", false, () => Navigator.pushReplacementNamed(context, '/routes')),
+                  _buildBottomNavItem(Icons.map, "Routes", false, () => Navigator.pushReplacementNamed(context, '/route')),
                   _buildBottomNavItem(Icons.directions_bus, "Track", false, 
                     () => Navigator.pushReplacementNamed(context, '/track/1')),
                   _buildBottomNavItem(Icons.notifications, "Alerts", true, 

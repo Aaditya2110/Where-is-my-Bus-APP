@@ -620,11 +620,30 @@ class _SideNavBarState extends State<SideNavBar> with SingleTickerProviderStateM
     );
   }
 
-  void _navigateTo(String route) {
-    // This would typically use a navigation method from your app
-    // For example, using GetX, Navigator 2.0, or regular Navigator
+void _navigateTo(String route) {
+  if (route == '/saved-routes') {
+    // Close sidebar
+    widget.setIsOpen(false);
+    
+    // Navigate to route page
+    Navigator.of(context).pushNamed('/route');
+    
+    // Find the RoutesPage state and set the active tab to "saved"
+    // This is a bit more complex and requires a global key or other state management
+    
+    // Using a simple method that works with basic Navigator:
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (Navigator.of(context).canPop()) {
+        Navigator.of(context).pushReplacementNamed('/route', arguments: {'tab': 'saved'});
+      } else {
+        Navigator.of(context).pushNamed('/route', arguments: {'tab': 'saved'});
+      }
+    });
+  } else {
+    // Regular navigation for other routes
     Navigator.of(context).pushNamed(route);
   }
+}
 }
 
 // Example usage:

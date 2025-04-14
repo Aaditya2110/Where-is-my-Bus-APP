@@ -5,7 +5,7 @@ import 'pages/LoginPage.dart';
 import 'pages/SignInSelectionPage.dart';
 import 'pages/LocationPermissionPage.dart';
 import 'pages/RoutesPage.dart';
-// import 'pages/RouteTrack.dart';
+import 'pages/Profile.dart';
 import 'pages/FeedbackPage.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(255, 255, 255, 1)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(226, 207, 132, 1)),
         useMaterial3: true,
       ),
       home: const SplashScreen(), // Set SplashScreen as the initial page
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/landing': (context) => const LandingPage(),
         '/route': (context) => const RoutesPage(),
         '/feed': (context) => const FeedbackPage(),
+        '/profile': (context) => const Profile(),
         '/notifications': (context) => NotificationsScreen(), // Replace with your actual notification page
         // '/track':(context) => const RouteDetailsPage(), // Replace with ForgotPasswordPage if you have one
       },
@@ -88,8 +89,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+    return Scaffold(backgroundColor: const Color.fromARGB(255, 253, 210, 146), 
+
       body: Center(
         child: ScaleTransition(
           scale: _animation,
