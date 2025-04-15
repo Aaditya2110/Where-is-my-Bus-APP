@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'SideNavBar.dart';
+import 'RouteTrack.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -664,8 +665,18 @@ return Scaffold(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildBottomNavItem(Icons.map, "Routes", true, () {}),
-              _buildBottomNavItem(Icons.directions_bus, "Track", false, 
-                () => Navigator.pushNamed(context, '/track/1')),
+              _buildBottomNavItem(Icons.directions_bus, "Track", false, () {
+                if (filteredRoutes.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RouteDetailsPage(
+                        routeId: filteredRoutes[0]['number'].toString(),
+                      ),
+                    ),
+                  );
+                }
+              }),
               _buildBottomNavItem(Icons.notifications_none, "Alerts", false, 
                 () => Navigator.pushNamed(context, '/notifications')),
               _buildBottomNavItem(Icons.bookmark_border, "Saved", false, 
@@ -763,7 +774,14 @@ return Scaffold(
           // Route content
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/track/${route['id']}');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RouteDetailsPage(
+                    routeId: route['number'].toString(),
+                  ),
+                ),
+              );
             },
             child: Padding(
               padding: const EdgeInsets.all(16),

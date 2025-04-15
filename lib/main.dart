@@ -7,6 +7,7 @@ import 'pages/LocationPermissionPage.dart';
 import 'pages/RoutesPage.dart';
 import 'pages/Profile.dart';
 import 'pages/FeedbackPage.dart';
+import 'pages/RouteTrack.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,9 @@ class MyApp extends StatelessWidget {
         '/feed': (context) => const FeedbackPage(),
         '/profile': (context) => const Profile(),
         '/notifications': (context) => NotificationsScreen(), // Replace with your actual notification page
-        // '/track':(context) => const RouteDetailsPage(), // Replace with ForgotPasswordPage if you have one
+        '/track/:id': (context) => RouteDetailsPage(
+          routeId: ModalRoute.of(context)?.settings.arguments as String,
+        ),
       },
     );
   }
